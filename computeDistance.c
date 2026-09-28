@@ -1,11 +1,20 @@
 #include  <stdio.h>
-extern unsigned char ram[];
 
-extern void fill_ram(void);
+
+extern void get_input(char **out1, char **out2);
 int main(){
-  fill_ram();
+  char *input1 = NULL;
+  char *input2 = NULL;
+  get_input(&input1, &input2);
+  int distance = 0;
+  int i = 0;
+  while(input1[i] != '\0' and input2[i] != '\0'){
+    if(input1[i] != input2[i]){
+      distance ++;
+    }
+    i++;
+  }
   
-  
-  printf("\n");
+  printf("The Hamming Distance is: %d\n", distance);
   return 0;
 }
