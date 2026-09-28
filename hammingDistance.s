@@ -15,30 +15,30 @@
 
   get_input:
 
-    push %rdi
-    push %rsi
+    pushq %rdi
+    pushq %rsi
 
-    mov $1, %rax
-    mov $1, %rdi
-    mov $prompt1, %rsi
-    mov $prompt1_len, $rdx
+    movq $1, %rax
+    movq $1, %rdi
+    movq $prompt1, %rsi
+    movq $prompt1_len, $rdx
     syscall
-    mov $0, %rax
-    mov $0, %rdi
-    mov $buffer1, %rsi
-    mov $64, %rdx
-    mov $0, buffer1-1(%rax)
-    mov $1, %rax
-    mov $1, %rdi
-    mov $prompt2, %rsi
-    mov $promp2_len, %rdx
+    movq $0, %rax
+    movq $0, %rdi
+    movq $buffer1, %rsi
+    movq $64, %rdx
+    movq $0, buffer1-1(%rax)
+    movq $1, %rax
+    movq $1, %rdi
+    movq $prompt2, %rsi
+    movq $promp2_len, %rdx
     syscall
-    mov $0, buffer2-1(%rax)
-    pop %rsi
-    pop %rdi
+    movq $0, buffer2-1(%rax)
+    popq %rsi
+    popq %rdi
 
-    mov $buffer1, (%rdi)
-    mov $buffer2, (%rsi)
+    movq $buffer1, (%rdi)
+    movq $buffer2, (%rsi)
     ret
 
     .section .note.GNU-stack,"",@progbits
