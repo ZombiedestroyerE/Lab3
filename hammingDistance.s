@@ -8,7 +8,7 @@
   prompt2_len = . - prompt2
 
 .section .bss
-  .lcomm buffer, 64
+  .lcomm buffer1, 64
   .lcomm buffer2, 64
 .section .text
   .globl get_input
@@ -31,7 +31,7 @@
     movq $1, %rax
     movq $1, %rdi
     movq $prompt2, %rsi
-    movq $promp2_len, %rdx
+    movq $prompt2_len, %rdx
     syscall
     movq $0, buffer2-1(%rax)
     popq %rsi
