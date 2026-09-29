@@ -7,7 +7,7 @@
     .ascii "Please enter another string: "
   prompt2_len = . - prompt2
 
-.section . bss
+.section .bss
   .lcomm buffer, 64
   .lcomm buffer2, 64
 .section .text
@@ -21,7 +21,7 @@
     movq $1, %rax
     movq $1, %rdi
     movq $prompt1, %rsi
-    movq $prompt1_len, $rdx
+    movq $prompt1_len, %rdx
     syscall
     movq $0, %rax
     movq $0, %rdi
