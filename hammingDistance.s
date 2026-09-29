@@ -27,11 +27,17 @@
     movq $0, %rdi
     movq $buffer1, %rsi
     movq $64, %rdx
+    syscall
     movq $0, buffer1-1(%rax)
     movq $1, %rax
     movq $1, %rdi
     movq $prompt2, %rsi
     movq $prompt2_len, %rdx
+    syscall
+    movq $0, %rax
+    movq $0 %rdi
+    movq $buffer2, %rsi
+    movq $64, %rdx
     syscall
     movq $0, buffer2-1(%rax)
     popq %rsi
