@@ -35,7 +35,7 @@
     movq $prompt2_len, %rdx
     syscall
     movq $0, %rax
-    movq $0 %rdi
+    movq $0, %rdi
     movq $buffer2, %rsi
     movq $64, %rdx
     syscall
